@@ -5,11 +5,11 @@
 
 :root {
   /* Paleta de Cores DUS (Saúde, Segurança e Tecnologia) */
-  --primary: #00A5BA;
-  --primary-hover: #008D9F;
-  --primary-dark: #007382;
+  --primary: #1E3A8A;
+  --primary-hover: #1E3A8A;
+  --primary-dark: #2B547E;
   --primary-light: #E6F7F9;
-  --primary-gradient: linear-gradient(135deg, #00A5BA 0%, #007D8E 100%);
+  --primary-gradient: linear-gradient(135deg, #1E3A8A 0%, #003975 100%);
   --primary-gradient-subtle: linear-gradient(135deg, #E6F7F9 0%, #F0FDFA 100%);
 
   /* Azul Real DUS (presente nos botões e destaques do app) */
@@ -19,8 +19,8 @@
 
   /* Cores Neutras e de Apoio */
   --navy: #0F172A;
-  --navy-light: #1E293B;
-  --slate-dark: #334155;
+  --navy-light: #1E40AF;
+  --slate-dark: #3B82F6;
   --slate: #64748B;
   --slate-light: #94A3B8;
   --border: #E2E8F0;
@@ -791,6 +791,7 @@ select {
   display: flex;
   flex-direction: column;
   align-items: center;
+  
 }
 
 .phone-screen-card {
@@ -846,6 +847,7 @@ select {
 }
 
 .step-card-box {
+  margin-top: 20px;
   background: rgba(255, 255, 255, 0.15);
   backdrop-filter: blur(8px);
   border: 1px solid rgba(255, 255, 255, 0.25);
