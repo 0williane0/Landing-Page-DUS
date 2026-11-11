@@ -1,0 +1,2199 @@
+/* ==========================================================================
+   DUS - DOCUMENTO UNIFICADO DE SAÚDE | DESIGN SYSTEM & STYLES
+   Baseado no modelo de alta conversão: Landing Page / Página de Produto
+   ========================================================================== */
+
+:root {
+  /* Paleta de Cores DUS (Saúde, Segurança e Tecnologia) */
+  --primary: #00A5BA;
+  --primary-hover: #008D9F;
+  --primary-dark: #007382;
+  --primary-light: #E6F7F9;
+  --primary-gradient: linear-gradient(135deg, #00A5BA 0%, #007D8E 100%);
+  --primary-gradient-subtle: linear-gradient(135deg, #E6F7F9 0%, #F0FDFA 100%);
+
+  /* Azul Real DUS (presente nos botões e destaques do app) */
+  --blue-dus: #1D4ED8;
+  --blue-dus-hover: #1E40AF;
+  --blue-dus-light: #EFF6FF;
+
+  /* Cores Neutras e de Apoio */
+  --navy: #0F172A;
+  --navy-light: #1E293B;
+  --slate-dark: #334155;
+  --slate: #64748B;
+  --slate-light: #94A3B8;
+  --border: #E2E8F0;
+  --border-light: #F1F5F9;
+  --bg-page: #FFFFFF;
+  --bg-soft: #F8FAFC;
+  --bg-card: #FFFFFF;
+
+  /* Cores de Acento Clínico */
+  --emerald: #10B981;
+  --emerald-light: #D1FAE5;
+  --amber: #F59E0B;
+  --rose: #F43F5E;
+
+  /* Sombras Modernas */
+  --shadow-sm: 0 1px 3px rgba(15, 23, 42, 0.06);
+  --shadow-md: 0 8px 20px -4px rgba(0, 165, 186, 0.12), 0 4px 6px -2px rgba(15, 23, 42, 0.04);
+  --shadow-lg: 0 20px 35px -10px rgba(0, 165, 186, 0.18), 0 10px 10px -5px rgba(15, 23, 42, 0.03);
+  --shadow-card: 0 10px 30px -5px rgba(15, 23, 42, 0.08);
+  --shadow-phone: 0 25px 50px -12px rgba(15, 23, 42, 0.25), 0 0 0 1px rgba(15, 23, 42, 0.06);
+
+  /* Borda arredondada */
+  --radius-sm: 8px;
+  --radius-md: 14px;
+  --radius-lg: 20px;
+  --radius-xl: 32px;
+  --radius-full: 9999px;
+
+  /* Tipografia */
+  --font-main: 'Plus Jakarta Sans', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+}
+
+/* Reset Básico */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+  font-size: 16px;
+  color: var(--navy);
+  background-color: var(--bg-page);
+  font-family: var(--font-main);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+body {
+  overflow-x: hidden;
+  line-height: 1.5;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+  transition: all 0.2s ease;
+}
+
+button,
+input,
+select {
+  font-family: inherit;
+  font-size: inherit;
+}
+
+/* Container */
+.container {
+  width: 100%;
+  max-width: 1180px;
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 24px;
+  padding-right: 24px;
+}
+
+/* ==========================================================================
+   HEADER / NAVBAR
+   ========================================================================== */
+.site-header {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  background: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border-bottom: 1px solid rgba(226, 232, 240, 0.8);
+  transition: all 0.3s ease;
+}
+
+.header-inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 80px;
+}
+
+.logo-link {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.brand-badge-logo {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.brand-logo-icon {
+  width: 42px;
+  height: 42px;
+  background: var(--primary-gradient);
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #FFFFFF;
+  font-weight: 800;
+  font-size: 1.25rem;
+  box-shadow: 0 4px 12px rgba(0, 165, 186, 0.3);
+}
+
+.brand-text-box {
+  display: flex;
+  flex-direction: column;
+}
+
+.brand-name {
+  font-size: 1.45rem;
+  font-weight: 800;
+  letter-spacing: -0.03em;
+  color: var(--navy);
+  line-height: 1.1;
+}
+
+.brand-subtitle {
+  font-size: 0.65rem;
+  font-weight: 700;
+  color: var(--primary);
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+}
+
+.main-nav {
+  display: flex;
+  align-items: center;
+  gap: 32px;
+}
+
+.nav-link {
+  font-size: 0.95rem;
+  font-weight: 500;
+  color: var(--slate-dark);
+  position: relative;
+  padding: 6px 0;
+}
+
+.nav-link:hover,
+.nav-link.active {
+  color: var(--primary);
+}
+
+.nav-link::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 0%;
+  height: 2px;
+  background-color: var(--primary);
+  transition: width 0.25s ease;
+  border-radius: 2px;
+}
+
+.nav-link:hover::after,
+.nav-link.active::after {
+  width: 100%;
+}
+
+.header-cta-link,
+.hero-cta-link {
+  display: inline-block;
+  text-decoration: none;
+}
+
+.header-cta-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 11px 26px;
+  border-radius: var(--radius-full);
+  background: var(--primary);
+  color: #FFFFFF;
+  font-weight: 700;
+  font-size: 0.95rem;
+  box-shadow: 0 4px 14px rgba(0, 165, 186, 0.28);
+  transition: all 0.25s ease;
+  border: none;
+  cursor: pointer;
+}
+
+.header-cta-btn:hover {
+  background: var(--primary-hover);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(0, 165, 186, 0.38);
+}
+
+.mobile-menu-toggle {
+  display: none;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 8px;
+  color: var(--navy);
+}
+
+/* ==========================================================================
+   HERO SECTION 
+   ========================================================================== */
+.hero-section {
+  padding: 32px 0 64px 0;
+  position: relative;
+  overflow: hidden;
+}
+
+.hero-backdrop-shape {
+  position: absolute;
+  top: 10px;
+  right: -5%;
+  width: 600px;
+  height: 520px;
+  background: #ECEFF3;
+  border-radius: 40% 60% 70% 30% / 40% 50% 60% 50%;
+  z-index: 0;
+  pointer-events: none;
+  opacity: 0.85;
+}
+
+.hero-backdrop-shape-left {
+  position: absolute;
+  top: 120px;
+  left: -8%;
+  width: 380px;
+  height: 380px;
+  background: #F1F5F9;
+  border-radius: 60% 40% 30% 70% / 60% 30% 70% 40%;
+  z-index: 0;
+  pointer-events: none;
+}
+
+/* Grande Card Ciano Arredondado com Estilo do Modelo */
+.hero-card {
+  position: relative;
+  z-index: 1;
+  background: var(--primary-gradient);
+  border-radius: var(--radius-xl);
+  padding: 56px 48px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  text-align: center;
+  gap: 0;
+  box-shadow: var(--shadow-lg);
+  overflow: hidden;
+}
+
+.hero-content {
+  color: #FFFFFF;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+.hero-badge-tag {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: rgba(255, 255, 255, 0.2);
+  backdrop-filter: blur(8px);
+  padding: 6px 16px;
+  border-radius: var(--radius-full);
+  font-size: 0.85rem;
+  font-weight: 700;
+  margin-bottom: 20px;
+  border: 1px solid rgba(255, 255, 255, 0.3);
+}
+
+.hero-title {
+  font-size: 3.15rem;
+  font-weight: 800;
+  line-height: 1.15;
+  letter-spacing: -0.025em;
+  margin-bottom: 24px;
+}
+
+.hero-subtitle {
+  font-size: 1.12rem;
+  line-height: 1.6;
+  color: rgba(255, 255, 255, 0.94);
+  margin-bottom: 36px;
+  max-width: 650px;
+  text-align: center;
+}
+
+.hero-cta-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  padding: 16px 36px;
+  border-radius: var(--radius-full);
+  background: #FFFFFF;
+  color: var(--primary-dark);
+  font-size: 1.05rem;
+  font-weight: 700;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12);
+  transition: all 0.25s ease;
+  border: none;
+  cursor: pointer;
+}
+
+.hero-cta-btn:hover {
+  transform: translateY(-3px) scale(1.02);
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.18);
+  background: #F8FAFC;
+  color: var(--navy);
+}
+
+.hero-proof-list {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 16px;
+  margin-top: 28px;
+  font-size: 0.85rem;
+  color: rgba(255, 255, 255, 0.9);
+  font-weight: 500;
+}
+
+.hero-proof-item {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+
+.phone-mockup-container {
+  width: 100%;
+  max-width: 320px;
+  background: #FFFFFF;
+  border-radius: 40px;
+  padding: 12px;
+  box-shadow: var(--shadow-phone);
+  border: 4px solid #E2E8F0;
+  position: relative;
+  z-index: 2;
+  transition: transform 0.3s ease;
+}
+
+.phone-mockup-container:hover {
+  transform: translateY(-6px);
+}
+
+
+/* Badges Flutuantes Hero (Simulação de Exames e Notificações) */
+.floating-badge {
+  position: absolute;
+  background: #FFFFFF;
+  padding: 10px 18px;
+  border-radius: var(--radius-full);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  z-index: 3;
+  animation: float 4.5s ease-in-out infinite;
+  border: 1px solid var(--border-light);
+}
+
+.floating-badge-1 {
+  top: 10%;
+  left: -40px;
+  animation-delay: 0s;
+}
+
+.floating-badge-2 {
+  top: 45%;
+  right: -30px;
+  animation-delay: 1.5s;
+}
+
+.floating-badge-3 {
+  bottom: 8%;
+  left: -20px;
+  animation-delay: 3s;
+}
+
+.badge-icon-pill {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  background: var(--primary-light);
+  color: var(--primary-dark);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.badge-text-box {
+  display: flex;
+  flex-direction: column;
+}
+
+.badge-title-txt {
+  font-size: 0.85rem;
+  font-weight: 700;
+  color: var(--navy);
+  line-height: 1.2;
+}
+
+.badge-subtitle-txt {
+  font-size: 0.75rem;
+  color: var(--slate);
+}
+
+@keyframes float {
+
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+
+  50% {
+    transform: translateY(-9px);
+  }
+}
+
+/* ==========================================================================
+   SECTION 2: BENEFÍCIOS ("Deixe a dor de cabeça e os papéis com a gente!")
+   ========================================================================== */
+.benefits-section {
+  padding: 72px 0;
+  position: relative;
+}
+
+.benefits-grid {
+  display: grid;
+  grid-template-columns: 0.9fr 1.1fr;
+  align-items: center;
+  gap: 60px;
+}
+
+.benefits-media-column {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.phone-mockup-benefits {
+  width: 100%;
+  max-width: 310px;
+  background: #FFFFFF;
+  border-radius: 36px;
+  padding: 10px;
+  box-shadow: var(--shadow-phone);
+  border: 4px solid #E2E8F0;
+  position: relative;
+  z-index: 2;
+}
+
+.organic-backdrop-blob {
+  position: absolute;
+  width: 380px;
+  height: 380px;
+  background: #F1F5F9;
+  border-radius: 60% 40% 70% 30% / 50% 60% 40% 50%;
+  z-index: 1;
+}
+
+.benefits-text-column {
+  padding-left: 10px;
+}
+
+.section-tag {
+  color: var(--primary);
+  font-weight: 800;
+  font-size: 0.85rem;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  display: inline-block;
+  margin-bottom: 8px;
+}
+
+.section-title {
+  font-size: 2.35rem;
+  font-weight: 800;
+  line-height: 1.22;
+  color: var(--navy);
+  margin-bottom: 12px;
+  letter-spacing: -0.02em;
+}
+
+.section-subtitle {
+  font-size: 1.05rem;
+  color: var(--slate);
+  margin-bottom: 36px;
+  font-weight: 400;
+  line-height: 1.55;
+}
+
+.feature-cards-list {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.feature-card {
+  background: #FFFFFF;
+  border: 1px solid var(--border);
+  border-radius: var(--radius-md);
+  padding: 18px 24px;
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  box-shadow: var(--shadow-sm);
+  transition: all 0.25s ease;
+}
+
+.feature-card:hover {
+  transform: translateX(6px);
+  box-shadow: var(--shadow-md);
+  border-color: rgba(0, 165, 186, 0.4);
+}
+
+.feature-icon-box {
+  width: 48px;
+  height: 48px;
+  border-radius: var(--radius-sm);
+  background: var(--primary);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #FFFFFF;
+  font-size: 1.35rem;
+  flex-shrink: 0;
+  box-shadow: 0 4px 10px rgba(0, 165, 186, 0.25);
+}
+
+.feature-info {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.feature-title {
+  font-size: 1.05rem;
+  font-weight: 700;
+  color: var(--navy);
+}
+
+.feature-desc {
+  font-size: 0.9rem;
+  color: var(--slate);
+  line-height: 1.45;
+}
+
+/* ==========================================================================
+   SECTION 3: CONECTIVIDADE NACIONAL & SEGURANÇA
+   ========================================================================== */
+.coverage-section {
+  padding: 72px 0 80px 0;
+  background: var(--bg-soft);
+  position: relative;
+}
+
+.coverage-grid {
+  display: grid;
+  grid-template-columns: 0.95fr 1.05fr;
+  align-items: center;
+  gap: 60px;
+}
+
+.coverage-text-column {
+  padding-right: 10px;
+}
+
+.stats-cards-list {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+  margin-top: 32px;
+}
+
+.stat-highlight-card {
+  background: #FFFFFF;
+  border: 1px solid rgba(0, 165, 186, 0.2);
+  border-radius: var(--radius-md);
+  padding: 20px 24px;
+  display: flex;
+  align-items: center;
+  gap: 22px;
+  box-shadow: var(--shadow-sm);
+  transition: all 0.25s ease;
+}
+
+.stat-highlight-card:hover {
+  transform: translateY(-3px);
+  box-shadow: var(--shadow-md);
+  border-color: var(--primary);
+}
+
+.stat-big-number {
+  font-size: 2.8rem;
+  font-weight: 800;
+  color: var(--primary);
+  line-height: 1;
+  letter-spacing: -0.03em;
+  flex-shrink: 0;
+  min-width: 54px;
+}
+
+.stat-icon-circle {
+  width: 52px;
+  height: 52px;
+  border-radius: 50%;
+  background: var(--primary-light);
+  color: var(--primary);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.4rem;
+  flex-shrink: 0;
+}
+
+.stat-card-text {
+  font-size: 0.98rem;
+  color: var(--slate-dark);
+  font-weight: 600;
+  line-height: 1.45;
+}
+
+.coverage-media-column {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.brazil-map-img {
+  width: 100%;
+  max-width: 480px;
+  object-fit: contain;
+  filter: drop-shadow(0 15px 30px rgba(0, 0, 0, 0.08));
+  border-radius: var(--radius-lg);
+}
+
+/* ==========================================================================
+   SECTION 4: COMO FUNCIONA O DUS (3 PASSOS COM TELAS REAIS DO APP)
+   ========================================================================== */
+.steps-section {
+  padding: 60px 0 80px 0;
+}
+
+.steps-card-container {
+  background: var(--primary-gradient);
+  border-radius: var(--radius-xl);
+  padding: 64px 48px 56px 48px;
+  box-shadow: var(--shadow-lg);
+  color: #FFFFFF;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+
+.steps-heading {
+  font-size: 2.25rem;
+  font-weight: 800;
+  line-height: 1.25;
+  margin-bottom: 48px;
+  letter-spacing: -0.02em;
+  max-width: 760px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.stepper-nav {
+  position: relative;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  max-width: 860px;
+  margin: 0 auto 52px auto;
+  padding: 0 40px;
+}
+
+.stepper-progress-line {
+  position: absolute;
+  top: 50%;
+  left: 60px;
+  right: 60px;
+  height: 2px;
+  background: rgba(255, 255, 255, 0.4);
+  z-index: 1;
+  transform: translateY(-50%);
+}
+
+.step-node {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+  cursor: pointer;
+}
+
+.step-number-circle {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background: var(--navy-light);
+  color: #FFFFFF;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 700;
+  font-size: 1.1rem;
+  border: 3px solid #FFFFFF;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+.step-pill-label {
+  background: #FFFFFF;
+  color: var(--navy);
+  font-size: 0.92rem;
+  font-weight: 700;
+  padding: 8px 22px;
+  border-radius: var(--radius-full);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.12);
+  white-space: nowrap;
+}
+
+/* Grid das 3 Telas Reais do DUS */
+.steps-screens-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 28px;
+  align-items: flex-start;
+  max-width: 960px;
+  margin: 0 auto 36px auto;
+}
+
+.screen-card-holder {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.phone-screen-card {
+  width: 100%;
+  background: #FFFFFF;
+  border-radius: 32px;
+  padding: 8px;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.25);
+  border: 4px solid rgba(255, 255, 255, 0.8);
+  transition: transform 0.3s ease;
+}
+
+.phone-screen-card:hover {
+  transform: translateY(-8px) scale(1.02);
+}
+
+.app-screenshot-real {
+  width: 100%;
+  border-radius: 24px;
+  display: block;
+  object-fit: cover;
+}
+
+.mobile-carousel-dots {
+  display: none;
+  justify-content: center;
+  align-items: center;
+  gap: 8px;
+  margin: 16px 0 24px 0;
+}
+
+.mobile-carousel-dots .dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.4);
+  transition: all 0.25s ease;
+  cursor: pointer;
+}
+
+.mobile-carousel-dots .dot.active {
+  width: 24px;
+  border-radius: 4px;
+  background: #FFFFFF;
+}
+
+.steps-interactive-cards {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+  margin-top: 24px;
+  text-align: left;
+}
+
+.step-card-box {
+  background: rgba(255, 255, 255, 0.15);
+  backdrop-filter: blur(8px);
+  border: 1px solid rgba(255, 255, 255, 0.25);
+  border-radius: var(--radius-lg);
+  padding: 24px;
+  transition: all 0.25s ease;
+}
+
+.step-card-box:hover {
+  background: rgba(255, 255, 255, 0.24);
+  transform: translateY(-4px);
+}
+
+.step-card-box h4 {
+  font-size: 1.15rem;
+  font-weight: 700;
+  margin-bottom: 8px;
+  color: #FFFFFF;
+}
+
+.step-card-box p {
+  font-size: 0.9rem;
+  line-height: 1.5;
+  color: rgba(255, 255, 255, 0.92);
+}
+
+/* ==========================================================================
+   SECTION 5: SIMULADOR DE SAÚDE & CARTÃO DIGITAL DUS (INTERATIVO)
+   ========================================================================== */
+.health-sim-section {
+  padding: 72px 0;
+  background: #FFFFFF;
+}
+
+.health-sim-card {
+  background: #FFFFFF;
+  border: 1px solid var(--border);
+  border-radius: var(--radius-xl);
+  box-shadow: var(--shadow-card);
+  padding: 48px;
+  display: grid;
+  grid-template-columns: 1.1fr 0.9fr;
+  gap: 48px;
+  align-items: center;
+}
+
+.sim-title {
+  font-size: 2.1rem;
+  font-weight: 800;
+  color: var(--navy);
+  margin-bottom: 12px;
+}
+
+.sim-subtitle {
+  color: var(--slate);
+  margin-bottom: 32px;
+  font-size: 1rem;
+}
+
+/* Visual do Cartão DUS Gerado Interativamente */
+.dus-digital-card-preview {
+  background: linear-gradient(135deg, #0F172A 0%, #1E293B 100%);
+  border-radius: var(--radius-lg);
+  padding: 32px 28px;
+  color: #FFFFFF;
+  box-shadow: 0 15px 35px rgba(15, 23, 42, 0.25);
+  position: relative;
+  overflow: hidden;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.dus-digital-card-preview::after {
+  content: '';
+  position: absolute;
+  top: -60px;
+  right: -60px;
+  width: 180px;
+  height: 180px;
+  background: radial-gradient(circle, rgba(0, 165, 186, 0.3) 0%, transparent 70%);
+  border-radius: 50%;
+}
+
+.card-top-flex {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 24px;
+}
+
+.card-chip-tag {
+  background: rgba(0, 165, 186, 0.2);
+  color: #38BDF8;
+  font-size: 0.75rem;
+  font-weight: 700;
+  padding: 4px 12px;
+  border-radius: var(--radius-full);
+  border: 1px solid rgba(56, 189, 248, 0.3);
+}
+
+.card-patient-name {
+  font-size: 1.5rem;
+  font-weight: 800;
+  margin-bottom: 4px;
+}
+
+.card-blood-type {
+  font-size: 0.9rem;
+  color: #94A3B8;
+  margin-bottom: 20px;
+}
+
+.card-meta-row {
+  display: flex;
+  gap: 20px;
+  padding-top: 16px;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.card-meta-col span:first-child {
+  display: block;
+  font-size: 0.75rem;
+  color: #94A3B8;
+  text-transform: uppercase;
+}
+
+.card-meta-col span:last-child {
+  font-size: 1rem;
+  font-weight: 700;
+  color: #FFFFFF;
+}
+
+.card-qr-box {
+  margin-top: 24px;
+  background: #FFFFFF;
+  padding: 12px;
+  border-radius: 12px;
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  color: var(--navy);
+  font-weight: 700;
+  font-size: 0.85rem;
+}
+
+/* ==========================================================================
+   SECTION 6: PLANOS E ACESSO
+   ========================================================================== */
+.pricing-section {
+  padding: 72px 0 88px 0;
+  background: var(--bg-soft);
+}
+
+.pricing-header {
+  text-align: center;
+  max-width: 680px;
+  margin: 0 auto 52px auto;
+}
+
+.pricing-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 32px;
+  align-items: stretch;
+}
+
+.pricing-card {
+  background: #FFFFFF;
+  border: 1px solid var(--border);
+  border-radius: var(--radius-xl);
+  padding: 40px 32px;
+  display: flex;
+  flex-direction: column;
+  transition: all 0.3s ease;
+  position: relative;
+  box-shadow: var(--shadow-sm);
+}
+
+.pricing-card:hover {
+  transform: translateY(-8px);
+  box-shadow: var(--shadow-lg);
+}
+
+.pricing-card.featured {
+  border: 2px solid var(--primary);
+  box-shadow: 0 15px 35px -5px rgba(0, 165, 186, 0.22);
+}
+
+.pricing-badge-popular {
+  position: absolute;
+  top: -14px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: var(--primary);
+  color: #FFFFFF;
+  font-size: 0.8rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  padding: 6px 18px;
+  border-radius: var(--radius-full);
+  letter-spacing: 0.05em;
+  box-shadow: 0 4px 10px rgba(0, 165, 186, 0.3);
+}
+
+.plan-name {
+  font-size: 1.4rem;
+  font-weight: 800;
+  color: var(--navy);
+  margin-bottom: 8px;
+}
+
+.plan-desc {
+  font-size: 0.9rem;
+  color: var(--slate);
+  min-height: 42px;
+  margin-bottom: 24px;
+}
+
+.plan-price-wrapper {
+  margin-bottom: 28px;
+  display: flex;
+  align-items: baseline;
+  gap: 4px;
+}
+
+.plan-currency {
+  font-size: 1.2rem;
+  font-weight: 700;
+  color: var(--navy);
+}
+
+.plan-amount {
+  font-size: 2.8rem;
+  font-weight: 800;
+  color: var(--navy);
+  line-height: 1;
+}
+
+.plan-period {
+  font-size: 0.9rem;
+  color: var(--slate);
+}
+
+.plan-benefits-list {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  margin-bottom: 36px;
+  flex-grow: 1;
+}
+
+.plan-benefit-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  font-size: 0.92rem;
+  color: var(--slate-dark);
+}
+
+.check-icon {
+  color: var(--primary);
+  font-size: 1.1rem;
+  flex-shrink: 0;
+  margin-top: 1px;
+}
+
+.plan-btn {
+  width: 100%;
+  padding: 14px 24px;
+  border-radius: var(--radius-full);
+  font-weight: 700;
+  font-size: 0.98rem;
+  cursor: pointer;
+  transition: all 0.25s ease;
+  border: 1.5px solid var(--primary);
+  text-align: center;
+}
+
+.plan-btn-outline {
+  background: transparent;
+  color: var(--primary);
+}
+
+.plan-btn-outline:hover {
+  background: var(--primary);
+  color: #FFFFFF;
+}
+
+.plan-btn-primary {
+  background: var(--primary);
+  color: #FFFFFF;
+  box-shadow: 0 6px 18px rgba(0, 165, 186, 0.25);
+}
+
+.plan-btn-primary:hover {
+  background: var(--primary-hover);
+  box-shadow: 0 8px 24px rgba(0, 165, 186, 0.35);
+}
+
+/* ==========================================================================
+   SECTION 7: DEPOIMENTOS DE PACIENTES
+   ========================================================================== */
+.testimonials-section {
+  padding: 72px 0;
+  background: #FFFFFF;
+}
+
+.testimonials-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 32px;
+  margin-top: 48px;
+}
+
+.testimonial-card {
+  background: #FFFFFF;
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  padding: 32px;
+  box-shadow: var(--shadow-sm);
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+  transition: all 0.25s ease;
+}
+
+.testimonial-card:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-md);
+  border-color: rgba(0, 165, 186, 0.3);
+}
+
+.stars-rating {
+  color: #F59E0B;
+  font-size: 1.1rem;
+  letter-spacing: 2px;
+}
+
+.testimonial-quote {
+  font-size: 0.95rem;
+  color: var(--slate-dark);
+  line-height: 1.6;
+  font-style: italic;
+  flex-grow: 1;
+}
+
+.author-info-box {
+  display: flex;
+  flex-direction: column;
+  padding-top: 14px;
+  border-top: 1px solid var(--border-light);
+}
+
+.author-name {
+  font-weight: 700;
+  font-size: 0.98rem;
+  color: var(--navy);
+}
+
+.author-role {
+  font-size: 0.8rem;
+  color: var(--slate);
+}
+
+/* ==========================================================================
+   SECTION 8: FAQ (PERGUNTAS FREQUENTES SOBRE O DUS)
+   ========================================================================== */
+.faq-section {
+  padding: 72px 0 80px 0;
+  background: var(--bg-soft);
+}
+
+.faq-container {
+  max-width: 820px;
+  margin: 0 auto;
+}
+
+.faq-list {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  margin-top: 40px;
+}
+
+.faq-item {
+  background: #FFFFFF;
+  border: 1px solid var(--border);
+  border-radius: var(--radius-md);
+  overflow: hidden;
+  transition: all 0.2s ease;
+}
+
+.faq-item.active {
+  border-color: var(--primary);
+  box-shadow: var(--shadow-sm);
+}
+
+.faq-question-btn {
+  width: 100%;
+  padding: 20px 24px;
+  background: none;
+  border: none;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  text-align: left;
+  font-size: 1.05rem;
+  font-weight: 700;
+  color: var(--navy);
+  cursor: pointer;
+  transition: color 0.2s ease;
+}
+
+.faq-question-btn:hover {
+  color: var(--primary);
+}
+
+.faq-chevron {
+  font-size: 1.1rem;
+  color: var(--primary);
+  transition: transform 0.25s ease;
+}
+
+.faq-item.active .faq-chevron {
+  transform: rotate(180deg);
+}
+
+.faq-answer {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.3s ease, padding 0.3s ease;
+  padding: 0 24px;
+  color: var(--slate);
+  font-size: 0.95rem;
+  line-height: 1.6;
+}
+
+.faq-item.active .faq-answer {
+  max-height: 300px;
+  padding: 0 24px 20px 24px;
+}
+
+/* ==========================================================================
+   FINAL CTA BANNER
+   ========================================================================== */
+.final-cta-section {
+  padding: 60px 0 80px 0;
+}
+
+.final-cta-card {
+  background: var(--navy-light);
+  border-radius: var(--radius-xl);
+  padding: 60px 48px;
+  color: #FFFFFF;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+  box-shadow: var(--shadow-lg);
+}
+
+.final-cta-card::before {
+  content: '';
+  position: absolute;
+  top: -50%;
+  right: -20%;
+  width: 500px;
+  height: 500px;
+  background: radial-gradient(circle, rgba(0, 165, 186, 0.28) 0%, transparent 70%);
+  pointer-events: none;
+}
+
+.final-cta-title {
+  font-size: 2.5rem;
+  font-weight: 800;
+  margin-bottom: 16px;
+  letter-spacing: -0.02em;
+}
+
+.final-cta-subtitle {
+  font-size: 1.1rem;
+  color: #CBD5E1;
+  max-width: 640px;
+  margin: 0 auto 36px auto;
+}
+
+.final-cta-buttons {
+  display: flex;
+  justify-content: center;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+
+/* ==========================================================================
+   FOOTER
+   ========================================================================== */
+.site-footer {
+  background: #0B111E;
+  color: #94A3B8;
+  padding: 64px 0 32px 0;
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.footer-top-grid {
+  display: grid;
+  grid-template-columns: 1.4fr 1fr 1fr 1fr;
+  gap: 40px;
+  margin-bottom: 48px;
+}
+
+.footer-brand-desc {
+  font-size: 0.9rem;
+  line-height: 1.6;
+  margin-top: 16px;
+  color: #64748B;
+  max-width: 320px;
+}
+
+.footer-col-title {
+  font-size: 1rem;
+  font-weight: 700;
+  color: #FFFFFF;
+  margin-bottom: 20px;
+}
+
+.footer-links-list {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.footer-link {
+  font-size: 0.9rem;
+  color: #94A3B8;
+  transition: color 0.2s ease;
+}
+
+.footer-link:hover {
+  color: var(--primary);
+}
+
+.footer-bottom-bar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-top: 32px;
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+  font-size: 0.85rem;
+  color: #64748B;
+}
+
+/* ==========================================================================
+   MODAL & GAVETA MOBILE
+   ========================================================================== */
+.modal-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(15, 23, 42, 0.6);
+  backdrop-filter: blur(6px);
+  z-index: 1000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.25s ease;
+}
+
+.modal-overlay.open {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.modal-container {
+  background: #FFFFFF;
+  border-radius: var(--radius-xl);
+  padding: 40px;
+  max-width: 520px;
+  width: 100%;
+  position: relative;
+  box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+  transform: translateY(20px);
+  transition: transform 0.25s ease;
+}
+
+.modal-overlay.open .modal-container {
+  transform: translateY(0);
+}
+
+.modal-close-btn {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  background: var(--bg-soft);
+  border: none;
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  font-size: 1.2rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  color: var(--slate);
+  transition: all 0.2s ease;
+}
+
+.modal-close-btn:hover {
+  background: #E2E8F0;
+  color: var(--navy);
+}
+
+.modal-title {
+  font-size: 1.75rem;
+  font-weight: 800;
+  color: var(--navy);
+  margin-bottom: 8px;
+}
+
+.modal-subtitle {
+  font-size: 0.95rem;
+  color: var(--slate);
+  margin-bottom: 24px;
+}
+
+.form-group {
+  margin-bottom: 20px;
+}
+
+.form-label {
+  display: block;
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: var(--navy);
+  margin-bottom: 8px;
+}
+
+.form-select,
+.form-input {
+  width: 100%;
+  padding: 12px 16px;
+  border: 1.5px solid var(--border);
+  border-radius: var(--radius-sm);
+  background: #FFFFFF;
+  color: var(--navy);
+  font-weight: 500;
+  outline: none;
+  transition: all 0.2s ease;
+}
+
+.form-select:focus,
+.form-input:focus {
+  border-color: var(--primary);
+  box-shadow: 0 0 0 3px var(--primary-light);
+}
+
+.mobile-nav-drawer {
+  display: none;
+  background: #FFFFFF;
+  border-bottom: 1px solid var(--border);
+  padding: 20px 24px;
+}
+
+.mobile-nav-drawer.open {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.mobile-nav-drawer .nav-link {
+  font-size: 1.05rem;
+  padding: 8px 0;
+  border-bottom: 1px solid var(--border-light);
+}
+
+.mobile-nav-drawer .header-cta-btn {
+  display: inline-flex;
+  margin-top: 8px;
+  text-align: center;
+  justify-content: center;
+}
+
+/* ==========================================================================
+   LIVE NOTIFICATION SOCIAL PROOF & WHATSAPP
+   ========================================================================== */
+.live-toast-box {
+  position: fixed;
+  bottom: 24px;
+  left: 24px;
+  z-index: 80;
+  background: #FFFFFF;
+  border: 1px solid var(--border);
+  border-left: 4px solid var(--primary);
+  border-radius: var(--radius-md);
+  padding: 12px 18px;
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.1);
+  transform: translateY(100px);
+  opacity: 0;
+  transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+  pointer-events: none;
+  max-width: 360px;
+}
+
+.live-toast-box.show {
+  transform: translateY(0);
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.toast-pulse-dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: var(--emerald);
+  box-shadow: 0 0 0 3px var(--emerald-light);
+  flex-shrink: 0;
+}
+
+.toast-content {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.toast-text {
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: var(--navy);
+  line-height: 1.3;
+}
+
+.toast-val {
+  font-size: 0.78rem;
+  color: var(--primary-dark);
+  font-weight: 700;
+}
+
+.whatsapp-floating-btn {
+  position: fixed;
+  bottom: 24px;
+  right: 24px;
+  z-index: 90;
+  background: #25D366;
+  color: #FFFFFF;
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.8rem;
+  box-shadow: 0 8px 24px rgba(37, 211, 102, 0.35);
+  transition: all 0.3s ease;
+}
+
+.whatsapp-floating-btn:hover {
+  transform: scale(1.1) translateY(-3px);
+  box-shadow: 0 12px 30px rgba(37, 211, 102, 0.45);
+}
+
+/* ==========================================================================
+   RESPONSIVIDADE AVANÇADA (MOBILE, TABLET & DESKTOP)
+   Garante fidelidade visual idêntica entre celular e computador
+   ========================================================================== */
+
+/* Telas Médias / Tablets (até 1024px) */
+@media (max-width: 1024px) {
+  .container {
+    padding-left: 20px;
+    padding-right: 20px;
+  }
+
+  /* Hero */
+  .hero-card {
+    grid-template-columns: 1fr;
+    text-align: center;
+    padding: 48px 32px;
+    gap: 36px;
+  }
+
+  .hero-subtitle {
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .hero-proof-list {
+    justify-content: center;
+  }
+
+  /* Badges flutuantes no Hero em tablets */
+  .hero-media-wrapper {
+    flex-direction: column;
+    gap: 16px;
+  }
+
+  .floating-badge {
+    position: static;
+    animation: none;
+    width: 100%;
+    max-width: 320px;
+    margin: 0 auto;
+  }
+
+  /* Benefícios (Ordem ideal de leitura: Título -> Mockup -> Cards) */
+  .benefits-grid {
+    display: flex;
+    flex-direction: column;
+    gap: 32px;
+  }
+
+  .benefits-text-column {
+    padding-left: 0;
+    text-align: center;
+  }
+
+  .benefits-media-column {
+    margin: 10px 0 20px 0;
+  }
+
+  .feature-cards-list {
+    text-align: left;
+    max-width: 600px;
+    margin: 0 auto;
+    width: 100%;
+  }
+
+  /* Cobertura Nacional (Título -> Mapa -> Cards) */
+  .coverage-grid {
+    display: flex;
+    flex-direction: column;
+    gap: 32px;
+  }
+
+  .coverage-text-column {
+    padding-right: 0;
+    text-align: center;
+  }
+
+  .coverage-media-column {
+    margin: 10px 0 20px 0;
+  }
+
+  .stats-cards-list {
+    text-align: left;
+    max-width: 600px;
+    margin: 0 auto;
+    width: 100%;
+  }
+
+  /* Simulador de Saúde */
+  .health-sim-card {
+    grid-template-columns: 1fr;
+    padding: 36px 28px;
+    gap: 36px;
+  }
+
+  /* Planos e Depoimentos */
+  .pricing-grid {
+    grid-template-columns: 1fr;
+    max-width: 480px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .testimonials-grid {
+    grid-template-columns: 1fr;
+    max-width: 520px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .footer-top-grid {
+    grid-template-columns: 1fr 1fr;
+    gap: 32px;
+  }
+}
+
+/* Telas Mobile / Smartphones (até 768px) */
+@media (max-width: 768px) {
+  :root {
+    --radius-xl: 24px;
+    --radius-lg: 16px;
+  }
+
+  body {
+    font-size: 15px;
+  }
+
+  .container {
+    padding-left: 16px;
+    padding-right: 16px;
+  }
+
+  /* Header Mobile */
+  .site-header {
+    background: rgba(255, 255, 255, 0.98);
+  }
+
+  .header-inner {
+    height: 70px;
+  }
+
+  .main-nav,
+  .header-cta-btn {
+    display: none;
+  }
+
+  .mobile-menu-toggle {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .brand-name {
+    font-size: 1.3rem;
+  }
+
+  .brand-subtitle {
+    font-size: 0.6rem;
+  }
+
+  /* Hero Mobile */
+  .hero-section {
+    padding: 16px 0 44px 0;
+  }
+
+  .hero-card {
+    padding: 36px 18px 32px 18px;
+    border-radius: var(--radius-xl);
+  }
+
+  .hero-title {
+    font-size: clamp(2rem, 8vw, 2.5rem);
+    line-height: 1.18;
+    margin-bottom: 16px;
+  }
+
+  .hero-subtitle {
+    font-size: 1rem;
+    line-height: 1.55;
+    margin-bottom: 28px;
+  }
+
+  .hero-cta-btn {
+    width: 100%;
+    padding: 15px 24px;
+    font-size: 1rem;
+  }
+
+  .hero-proof-list {
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+    margin-top: 24px;
+  }
+
+  .phone-mockup-container {
+    max-width: 275px;
+    border-radius: 32px;
+    padding: 8px;
+  }
+
+  .phone-screen-img {
+    border-radius: 24px;
+  }
+
+  /* Badges flutuantes como mini-cards organizados no Hero Mobile */
+  .floating-badge {
+    position: static;
+    animation: none;
+    width: 100%;
+    max-width: 275px;
+    padding: 8px 14px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+  }
+
+  .badge-icon-pill {
+    width: 28px;
+    height: 28px;
+  }
+
+  .badge-title-txt {
+    font-size: 0.8rem;
+  }
+
+  .badge-subtitle-txt {
+    font-size: 0.7rem;
+  }
+
+  /* Seções Gerais */
+  .benefits-section,
+  .coverage-section,
+  .steps-section,
+  .health-sim-section,
+  .pricing-section,
+  .testimonials-section,
+  .faq-section {
+    padding: 52px 0;
+  }
+
+  .section-title {
+    font-size: 1.85rem;
+    line-height: 1.25;
+  }
+
+  .section-subtitle {
+    font-size: 0.95rem;
+    margin-bottom: 28px;
+  }
+
+  /* Benefícios - Cards */
+  .phone-mockup-benefits {
+    max-width: 270px;
+    border-radius: 30px;
+    padding: 8px;
+  }
+
+  .organic-backdrop-blob {
+    width: 300px;
+    height: 300px;
+  }
+
+  .feature-card {
+    padding: 16px 18px;
+    gap: 16px;
+    border-radius: 12px;
+  }
+
+  .feature-icon-box {
+    width: 44px;
+    height: 44px;
+    font-size: 1.2rem;
+  }
+
+  .feature-title {
+    font-size: 1rem;
+  }
+
+  .feature-desc {
+    font-size: 0.88rem;
+  }
+
+  /* Cobertura Nacional */
+  .stat-highlight-card {
+    padding: 16px 18px;
+    gap: 16px;
+  }
+
+  .stat-big-number {
+    font-size: 2.2rem;
+    min-width: 42px;
+  }
+
+  .stat-icon-circle {
+    width: 44px;
+    height: 44px;
+    font-size: 1.2rem;
+  }
+
+  .stat-card-text {
+    font-size: 0.92rem;
+  }
+
+  .brazil-map-img {
+    max-width: 330px;
+  }
+
+  /* Stepper e Telas do DUS no Mobile (Carrossel Horizontal com Snap) */
+  .steps-card-container {
+    padding: 40px 16px 36px 16px;
+    border-radius: var(--radius-xl);
+  }
+
+  .steps-heading {
+    font-size: 1.75rem;
+    margin-bottom: 32px;
+  }
+
+  .stepper-nav {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    gap: 8px;
+    padding: 0;
+    margin-bottom: 28px;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  .stepper-progress-line {
+    display: none;
+  }
+
+  .step-node {
+    flex-direction: row;
+    gap: 6px;
+  }
+
+  .step-number-circle {
+    width: 28px;
+    height: 28px;
+    font-size: 0.85rem;
+    border-width: 2px;
+  }
+
+  .step-pill-label {
+    font-size: 0.78rem;
+    padding: 6px 12px;
+    white-space: nowrap;
+  }
+
+  /* Carrossel Horizontal de Telas no Mobile */
+  .steps-screens-grid {
+    display: flex;
+    flex-direction: row;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    gap: 16px;
+    padding: 8px 12px 20px 12px;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
+    max-width: 100%;
+  }
+
+  .steps-screens-grid::-webkit-scrollbar {
+    display: none;
+  }
+
+  .screen-card-holder {
+    flex: 0 0 82%;
+    max-width: 270px;
+    scroll-snap-align: center;
+  }
+
+  .phone-screen-card {
+    border-radius: 28px;
+    padding: 6px;
+  }
+
+  .app-screenshot-real {
+    border-radius: 22px;
+  }
+
+  .mobile-carousel-dots {
+  display: none;
+  justify-content: center;
+  align-items: center;
+  gap: 8px;
+  margin: 16px 0 24px 0;
+}
+
+.mobile-carousel-dots .dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.4);
+  transition: all 0.25s ease;
+  cursor: pointer;
+}
+
+.mobile-carousel-dots .dot.active {
+  width: 24px;
+  border-radius: 4px;
+  background: #FFFFFF;
+}
+
+.steps-interactive-cards {
+    grid-template-columns: 1fr;
+    gap: 14px;
+    margin-top: 16px;
+  }
+
+  .step-card-box {
+    padding: 18px;
+    border-radius: 14px;
+  }
+
+  .step-card-box h4 {
+    font-size: 1.05rem;
+  }
+
+  /* Simulador de Saúde no Mobile */
+  .health-sim-card {
+    padding: 28px 18px;
+    border-radius: var(--radius-xl);
+  }
+
+  .sim-title {
+    font-size: 1.7rem;
+  }
+
+  .sim-subtitle {
+    font-size: 0.92rem;
+    margin-bottom: 24px;
+  }
+
+  .health-sim-card .form-group[style*="grid"] {
+    grid-template-columns: 1fr !important;
+  }
+
+  .dus-digital-card-preview {
+    padding: 24px 18px;
+    border-radius: 18px;
+  }
+
+  .card-patient-name {
+    font-size: 1.35rem;
+  }
+
+  .card-meta-row {
+    flex-direction: column;
+    gap: 12px;
+  }
+
+  .card-qr-box {
+    width: 100%;
+    justify-content: center;
+  }
+
+  /* Planos no Mobile */
+  .pricing-card {
+    padding: 32px 20px;
+  }
+
+  .plan-name {
+    font-size: 1.3rem;
+  }
+
+  .plan-amount {
+    font-size: 2.5rem;
+  }
+
+  /* Depoimentos */
+  .testimonial-card {
+    padding: 24px 20px;
+  }
+
+  /* FAQ */
+  .faq-question-btn {
+    padding: 16px 18px;
+    font-size: 0.98rem;
+  }
+
+  .faq-item.active .faq-answer {
+    padding: 0 18px 16px 18px;
+    font-size: 0.9rem;
+  }
+
+  /* CTA Final */
+  .final-cta-card {
+    padding: 44px 20px;
+    border-radius: var(--radius-xl);
+  }
+
+  .final-cta-title {
+    font-size: 1.9rem;
+  }
+
+  .final-cta-subtitle {
+    font-size: 0.98rem;
+    margin-bottom: 28px;
+  }
+
+  .final-cta-buttons {
+    flex-direction: column;
+    width: 100%;
+  }
+
+  .final-cta-buttons .hero-cta-btn,
+  .final-cta-buttons .plan-btn {
+    width: 100%;
+    max-width: 100% !important;
+  }
+
+  /* Footer Mobile */
+  .footer-top-grid {
+    grid-template-columns: 1fr;
+    gap: 28px;
+  }
+
+  .footer-bottom-bar {
+    flex-direction: column;
+    gap: 12px;
+    text-align: center;
+  }
+
+  /* Modal no Mobile */
+  .modal-container {
+    padding: 32px 20px;
+    border-radius: var(--radius-lg);
+  }
+
+  .modal-title {
+    font-size: 1.5rem;
+  }
+
+  /* Notificação Social Proof Flutuante no Mobile */
+  .live-toast-box {
+    bottom: 16px;
+    left: 16px;
+    right: 80px;
+    max-width: calc(100% - 96px);
+    padding: 10px 14px;
+    border-radius: 12px;
+  }
+
+  .toast-text {
+    font-size: 0.78rem;
+  }
+
+  .toast-val {
+    font-size: 0.72rem;
+  }
+
+  /* Botão WhatsApp Mobile */
+  .whatsapp-floating-btn {
+    width: 52px;
+    height: 52px;
+    font-size: 1.6rem;
+    bottom: 16px;
+    right: 16px;
+  }
+}
+
+/* Telas Muito Pequenas (Smartphones compactos até 380px) */
+@media (max-width: 380px) {
+  .hero-title {
+    font-size: 1.85rem;
+  }
+
+  .brand-text-box {
+    display: none;
+  }
+
+  .stepper-nav {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .step-pill-label {
+    font-size: 0.72rem;
+  }
+
+  .screen-card-holder {
+    flex: 0 0 90%;
+  }
+}

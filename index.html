@@ -1,0 +1,337 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>DUS | Documento Unificado de Saúde</title>
+  <meta name="description" content="Centralize seus exames, laudos, vacinas e histórico clínico em um único lugar. Compartilhe seu resumo com médicos em segundos via QR Code.">
+  
+  <!-- Favicon -->
+  <link rel="icon" type="image/png" href="assets/icone.png">
+
+  <!-- Google Fonts: Plus Jakarta Sans -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+  <!-- Estilos Customizados DUS -->
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+  <!-- =========================================================================
+       HEADER / NAVBAR
+       ========================================================================= -->
+  <header class="site-header">
+    <div class="container header-inner">
+      <a href="#inicio" class="logo-link" aria-label="DUS - Início">
+        <div class="brand-badge-logo">
+          <div class="brand-logo-icon">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path>
+              <line x1="12" y1="8" x2="12" y2="16"></line>
+              <line x1="8" y1="12" x2="16" y2="12"></line>
+            </svg>
+          </div>
+          <div class="brand-text-box">
+            <span class="brand-name">DUS</span>
+            <span class="brand-subtitle">Documento Unificado de Saúde</span>
+          </div>
+        </div>
+      </a>
+
+      <!-- Menu Desktop -->
+      <nav class="main-nav" aria-label="Navegação Principal">
+        <a href="#inicio" class="nav-link active">Início</a>
+        <a href="#recursos" class="nav-link">Recursos</a>
+        <a href="#como-funciona" class="nav-link">Como funciona</a>
+      </nav>
+
+      <!-- Botão CTA Desktop -->
+      <a href="https://dus-frontend-production.up.railway.app/" target="_blank" rel="noopener noreferrer" class="header-cta-link">
+        <button type="button" class="header-cta-btn">
+          Criar meu DUS
+        </button>
+      </a>
+
+      <!-- Botão Hambúrguer Mobile -->
+      <button type="button" class="mobile-menu-toggle" id="mobileToggle" aria-label="Abrir Menu">
+        <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+          <line x1="3" y1="12" x2="21" y2="12"></line>
+          <line x1="3" y1="6" x2="21" y2="6"></line>
+          <line x1="3" y1="18" x2="21" y2="18"></line>
+        </svg>
+      </button>
+    </div>
+
+    <!-- Gaveta de Menu Mobile -->
+    <div class="mobile-nav-drawer" id="mobileNav">
+      <a href="#inicio" class="nav-link">Início</a>
+      <a href="#recursos" class="nav-link">Recursos</a>
+      <a href="#como-funciona" class="nav-link">Como funciona</a>
+      <a href="https://dus-frontend-production.up.railway.app/" target="_blank" rel="noopener noreferrer" style="width: 100%;">
+        <button type="button" class="header-cta-btn" style="width: 100%;">
+          Criar meu DUS
+        </button>
+      </a>
+    </div>
+  </header>
+
+  <!-- =========================================================================
+       HERO SECTION 
+       ========================================================================= -->
+  <section class="hero-section" id="inicio">
+    <div class="hero-backdrop-shape" aria-hidden="true"></div>
+    <div class="hero-backdrop-shape-left" aria-hidden="true"></div>
+
+    <div class="container">
+      <div class="hero-card">
+        
+        <!-- Conteúdo Textual Esquerdo -->
+        <div class="hero-content">
+          <div class="hero-badge-tag">
+        
+            <span>Prontuário Pessoal Unificado do Paciente</span>
+          </div>
+
+          <h1 class="hero-title">
+            Sua saúde completa,<br>sempre na palma da sua mão.
+          </h1>
+          <p class="hero-subtitle">
+            A plataforma inteligente onde você faz upload de documentos de saúde, laudos e vacinas. Compartilhe seu resumo com qualquer médico em segundos, sem complicações.
+          </p>
+          <a href="https://dus-frontend-production.up.railway.app/" target="_blank" rel="noopener noreferrer" class="hero-cta-link">
+            <button type="button" class="hero-cta-btn">
+              Criar meu DUS agora
+            </button>
+          </a>
+
+          <!-- Prova Social e Segurança -->
+          <div class="hero-proof-list">
+            <span class="hero-proof-item">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                <polyline points="20 6 9 17 4 12"></polyline>
+              </svg>
+              Upload de laudos em PDF e imagens
+            </span>
+            <span class="hero-proof-item">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                <polyline points="20 6 9 17 4 12"></polyline>
+              </svg>
+              Acesso temporário via QR Code
+            </span>
+            <span class="hero-proof-item">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                <polyline points="20 6 9 17 4 12"></polyline>
+              </svg>
+              100% protegido pela LGPD
+            </span>
+          </div>
+        </div>
+
+
+      </div>
+    </div>
+  </section>
+
+  <!-- =========================================================================
+       SECTION 2: RECURSOS (BENEFÍCIOS)
+       ========================================================================= -->
+  <section class="benefits-section" id="recursos">
+    <div class="container">
+      <div class="benefits-grid">
+
+        <!-- Coluna: Mockup da Tela de Documentos Digitais e Vacinas -->
+        <div class="benefits-media-column">
+          <div class="organic-backdrop-blob" aria-hidden="true"></div>
+          <div class="phone-mockup-benefits">
+            <img src="assets/dus-documents.png" alt="Tela de Documentos Digitais e Histórico de Vacinação do DUS" class="phone-screen-img">
+          </div>
+        </div>
+
+        <!-- Coluna: Título + 4 Cards de Vantagens -->
+        <div class="benefits-text-column">
+          <span class="section-tag">Praticidade & Autonomia</span>
+          <h2 class="section-title">
+            Paciente, deixe a papelada e a perda de exames no passado!
+          </h2>
+          <p class="section-subtitle">
+            Se preocupe apenas em cuidar do que mais importa: sua saúde.<br>O DUS organiza todos os seus laudos, vacinas e informações médicas automaticamente.
+          </p>
+
+          <!-- 4 Cards Estruturados como no modelo de referência -->
+          <div class="feature-cards-list">
+
+            <!-- Card 1: Upload de Documentos -->
+            <div class="feature-card">
+              <div class="feature-icon-box" aria-hidden="true">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+                  <polyline points="17 8 12 3 7 8"></polyline>
+                  <line x1="12" y1="3" x2="12" y2="15"></line>
+                </svg>
+              </div>
+              <div class="feature-info">
+                <h3 class="feature-title">Upload Rápido de Documentos e Exames</h3>
+                <p class="feature-desc">Envie laudos em PDF, fotos de receitas, exames de sangue e relatórios médicos em poucos toques.</p>
+              </div>
+            </div>
+
+            <!-- Card 2: Compartilhamento Fácil -->
+            <div class="feature-card">
+              <div class="feature-icon-box" aria-hidden="true">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+                  <rect x="3" y="3" width="7" height="7"></rect>
+                  <rect x="14" y="3" width="7" height="7"></rect>
+                  <rect x="14" y="14" width="7" height="7"></rect>
+                  <rect x="3" y="14" width="7" height="7"></rect>
+                </svg>
+              </div>
+              <div class="feature-info">
+                <h3 class="feature-title">Compartilhamento em Consulta via QR Code</h3>
+                <p class="feature-desc">Crie um acesso seguro de 2 horas para o médico consultar na hora. Ele não precisa ter conta!</p>
+              </div>
+            </div>
+
+            <!-- Card 3: Resumo Clínico e Marcadores -->
+            <div class="feature-card">
+              <div class="feature-icon-box" aria-hidden="true">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M22 12h-4l-3 9L9 3l-3 9H2"></path>
+                </svg>
+              </div>
+              <div class="feature-info">
+                <h3 class="feature-title">Resumo Clínico e Marcadores de Saúde</h3>
+                <p class="feature-desc">Tipo sanguíneo, alergias, condições crônicas e histórico de saúde sempre à mão em emergências.</p>
+              </div>
+            </div>
+
+            <!-- Card 4: Histórico de Vacinação -->
+            <div class="feature-card">
+              <div class="feature-icon-box" aria-hidden="true">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path>
+                </svg>
+              </div>
+              <div class="feature-info">
+                <h3 class="feature-title">Linha do Tempo e Histórico de Vacinas</h3>
+                <p class="feature-desc">Mantenha doses aplicadas, reforços anuais e comprovantes de imunização centralizados e seguros.</p>
+              </div>
+            </div>
+
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- =========================================================================
+       SECTION 3: COMO FUNCIONA O DUS 
+       ========================================================================= -->
+  <section class="steps-section" id="como-funciona">
+    <div class="container">
+      <div class="steps-card-container">
+
+        <!-- Título Centralizado -->
+        <h2 class="steps-heading">
+          Tenha seus exames e histórico de saúde organizados em 3 passos...
+        </h2>
+
+        <!-- Stepper Horizontal com 3 Passos Conectados -->
+        <div class="stepper-nav">
+          <div class="stepper-progress-line" aria-hidden="true"></div>
+
+          <!-- Passo 1 -->
+          <div class="step-node active" id="stepNode1" data-step="0">
+            <div class="step-number-circle">1</div>
+            <div class="step-pill-label">Perfil & Dados Vitais</div>
+          </div>
+
+          <!-- Passo 2 -->
+          <div class="step-node" id="stepNode2" data-step="1">
+            <div class="step-number-circle">2</div>
+            <div class="step-pill-label">Upload de Exames & Vacinas</div>
+          </div>
+
+          <!-- Passo 3 -->
+          <div class="step-node" id="stepNode3" data-step="2">
+            <div class="step-number-circle">3</div>
+            <div class="step-pill-label">Marcadores & Compartilhamento</div>
+          </div>
+        </div>
+
+        <!-- Grid/Carrossel com as 3 Telas Reais do Aplicativo DUS Desenvolvido -->
+        <div class="steps-screens-grid" id="stepsScreensGrid">
+          
+          <!-- Tela 1: Perfil Pedro Fonseca & Acesso em Consulta -->
+          <div class="screen-card-holder active" data-step-index="0">
+            <div class="phone-screen-card">
+              <img src="assets/dus-profile.png" alt="Tela Real 1 do DUS: Meu Perfil Pedro Fonseca e Compartilhamento de Resumo" class="app-screenshot-real">
+            </div>
+
+            <div class="step-card-box">
+              <h4>1. Cadastre seu Perfil</h4>
+              <p>Insira seu nome, data de nascimento e tipo sanguíneo. Seus dados básicos ficam prontos em segundos.</p>
+            </div>
+          </div>
+
+          <!-- Tela 2: Arquivo Clínico, Documentos Digitais e Vacinas -->
+          <div class="screen-card-holder" data-step-index="1">
+            <div class="phone-screen-card">
+              <img src="assets/dus-documents.png" alt="Tela Real 2 do DUS: Documentos Digitais, Laudo SAE e Histórico de Vacinação" class="app-screenshot-real">
+            </div>          
+            
+            <div class="step-card-box">
+              <h4>2. Anexe seus Exames</h4>
+              <p>Faça upload de PDFs de laudos, comprovantes de vacinas e exames laboratoriais na nuvem.</p>
+            </div>
+          </div>
+
+          <!-- Tela 3: Resumo Clínico Pessoal, Marcadores e Condições -->
+          <div class="screen-card-holder" data-step-index="2">
+            <div class="phone-screen-card">
+              <img src="assets/dus-markers.png" alt="Tela Real 3 do DUS: Marcadores de Saúde, Tendinite Crônica e Alertas Médicos" class="app-screenshot-real">
+            </div>  
+                    
+            <div class="step-card-box">
+              <h4>3. Gere Acesso em Consulta</h4>
+              <p>Crie um link temporário ou QR Code de 2 horas. O médico visualiza seu resumo clínico de forma rápida e segura.</p>
+            </div>
+          </div>
+
+        </div>
+
+        <!-- Indicador de Passos Mobile -->
+        <div class="mobile-carousel-dots" id="carouselDots" aria-hidden="true">
+          <span class="dot active"></span>
+          <span class="dot"></span>
+          <span class="dot"></span>
+        </div>
+
+
+
+      </div>
+    </div>
+  </section>
+
+  <!-- =========================================================================
+       FINAL CONVERSION 
+       ========================================================================= -->
+  <section class="final-cta-section">
+    <div class="container">
+      <div class="final-cta-card">
+        <h2 class="final-cta-title">
+          Pronto para ter o controle da sua saúde nas suas mãos?
+        </h2>
+        <p class="final-cta-subtitle">
+          Crie seu Documento Unificado de Saúde gratuitamente em menos de 2 minutos e nunca mais perca um exame médico.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Script da Página -->
+  <script src="app.js"></script>
+</body>
+</html>
