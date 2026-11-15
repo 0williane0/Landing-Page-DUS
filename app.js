@@ -89,19 +89,6 @@ document.addEventListener('DOMContentLoaded', () => {
       }
     });
 
-    // Atualiza Destaque dos Mockups
-    screenCards.forEach((card, i) => {
-      if (i === index) {
-        card.style.transform = window.innerWidth > 768 ? 'translateY(-12px) scale(1.03)' : 'none';
-        card.style.borderColor = '#00A5BA';
-        card.style.boxShadow = '0 25px 45px rgba(0, 165, 186, 0.35)';
-      } else {
-        card.style.transform = 'none';
-        card.style.borderColor = 'rgba(255, 255, 255, 0.8)';
-        card.style.boxShadow = '0 20px 40px rgba(0, 0, 0, 0.25)';
-      }
-    });
-
     // Atualiza Dots do Carrossel Mobile
     carouselDots.forEach((dot, i) => {
       dot.classList.toggle('active', i === index);
